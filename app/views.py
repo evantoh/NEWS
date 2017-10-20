@@ -4,7 +4,7 @@ from flask import render_template
 @app.route('/')
 
 def index():
-	title='Yeah am working push the boundary' 
+	title='Welcome to the best News website' 
 	return render_template('index.html',title=title)
 
 
