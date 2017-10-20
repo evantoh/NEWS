@@ -11,8 +11,12 @@ article_url=app.config['NEWS_ARTICLE_API_BASE_URL']
 source_url=app.config['NEWS_SOURCE_API_BASE_URL']
 
 #getting categories of News
-def get_news(category):
-	get_sources_url=source_url.format(source_url)
+
+
+
+def get_news(sortby):
+
+	get_sources_url=article_url.format(sortby,)
 
 	with urllib.request.urlopen(get_sources_url) as url:
 		get_source_data=url.read()
@@ -35,4 +39,4 @@ def get_news(category):
 
 		for source_item in source_list:
 
-			
+
