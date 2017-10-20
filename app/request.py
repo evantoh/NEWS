@@ -1,6 +1,6 @@
 from app import app
 import urllib.request,json
-from models.news import News
+from models.sources import Sources,Articles
 
 
 #importing api_key
@@ -14,7 +14,7 @@ source_url=app.config['NEWS_SOURCE_API_BASE_URL']
 
 #Stripping the source url to get information we need 
 
-def get_url(sources):
+def get_url():
 	with urllib.request.urlopen(source_url) as sourceUrl:
 		get_source_data=sourceUrl.read()
 		get_source_response=json.loads(get_source_data)
@@ -26,11 +26,35 @@ def get_url(sources):
 			source_result_list=get_source_response['result']
 			source_results=process_source_result(source_result_list)
 
+	return source_results
 #---------------------------------------------------------
 
 
+##Getting specific items using the function process_source_result()
+def process_source_result(source_list):
+
+	source_results=[]
+
+	for source_item in source_list:
+		id=source_item.get('id')
+		name=source_item.get('name')
+		description=source_item.get('description')
+		source=source_item.get('source')
+		category=source_item.get('category')
+
+		if source:
+			source_object=Sources(id,name,description,source,category):
+			 source_results.append(source_object):
+
+	return source_results
+#-------------------------------------------------------------
+					#END OF SOURCE_URL STRIPING 
+#-------------------------------------------------------------
+
 
 #rem to work here
+
+
 # def get_news(sortby):
 
 # 	get_articles_url=article_url.format()
