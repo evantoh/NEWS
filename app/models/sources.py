@@ -6,7 +6,7 @@ class Articles:
 		self.title=title
 		self.description=description
 		self.article=article
-		self.image= "https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2017/10/"+image
+		self.image= image
 		self.publishedAt=publishedAt
 
 

@@ -5,9 +5,10 @@ from .request import get_source
 @app.route('/')
 def index():
 	title='Welcome to the best News website'
-	sources=get_source() #removed the s in get_sources and added  
-	print(sources)
-	return render_template('index.html',title=title,source = sources)
+	sources=get_source("en") #removed the s in get_sources and added  
+	source_swahili=get_source("sw") #removed the s in get_sources and added  
+
+	return render_template('index.html',title=title,source = sources,source_swahili=source_swahili)
 
 
 @app.route('/news/<int:news_id>')
