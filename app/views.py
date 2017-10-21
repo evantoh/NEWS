@@ -6,8 +6,8 @@ from .request import get_source
 def index():
 	title='Welcome to the best News website'
 	sources=get_source() #removed the s in get_sources and added  
-	# kk=print(sources)
-	return render_template('index.html',title=title,source=sources)
+	print(sources)
+	return render_template('index.html',title=title,source = sources)
 
 
 @app.route('/news/<int:news_id>')

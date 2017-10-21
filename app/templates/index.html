@@ -6,12 +6,13 @@
 		{%else%}
 		<title>Welcome to the best News website</title>
 		{%endif%}
-	</head>
+	</head> 
 	<body>
+		<h2>list of sources</h2>
 		<ul>
-			{%for source in sources%}
-			 <li>{{source.id}}</li>
+			{% for sources in source %}
+			 <li>{{sources.id}}</li>
 			{%endfor%}
-		</ul>
+		</ul> 
 	</body>
-</html>
+</html> 
