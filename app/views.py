@@ -1,14 +1,13 @@
 from app import app
 from flask import render_template
-from .request import get_resource
+from .request import get_source
 
 @app.route('/')
 def index():
 	title='Welcome to the best News website'
-	sources=get_resource() 
+	sources=get_source() #removed the s in get_sources and added  
 	# kk=print(sources)
-	return render_template('index.html',title=title,sources=sources)
-
+	return render_template('index.html',title=title,source=sources)
 
 
 @app.route('/news/<int:news_id>')

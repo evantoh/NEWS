@@ -9,9 +9,9 @@
 	</head>
 	<body>
 		<ul>
-		
-			<li>{{sources.id}}</li>
-		
+			{%for source in sources%}
+			 <li>{{source.id}}</li>
+			{%endfor%}
 		</ul>
 	</body>
 </html>
