@@ -18,4 +18,4 @@ def news(id):
 	new_id = id
 	title=f'{new_id}'
 	print(news)
-	return render_template('source.html',title=title,news=news)
+	return render_template('source.html',title=title,news=news, new_id=new_id)
