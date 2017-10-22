@@ -1,0 +1,22 @@
+{%extends 'base.html' %}
+{% import 'macros.html' as macro%}
+{%block content%}
+<div class="container">
+
+		<!-- images of the articles -->
+	<div class="row">
+		 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{news.image}}) no-repeat center center"></div>
+
+	 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
+	 	<h3>{{news.title}}</h3>
+	 	<p>{{news.description}}</p>
+		 <a href={{news.url}}>More info...</a>
+		 <ul>
+			 {{macro.displayArticleList(news)}}
+		 </ul>
+	 </div>
+		
+	</div>
+</div>
+
+{%endblock%}
