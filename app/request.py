@@ -64,24 +64,36 @@ def get_article(id):
 
 	get_article_url=article_url.format(id,api_key)
 
+	article_results=None
+
 	with urllib.request.urlopen(get_article_url) as url:
 		article_data=url.read()
 		get_article_response=json.loads(article_data)
+		get_article_processed=process_article(get_article_response)
+	
+	return get_article_processed
+		
 
-		article_results=None
+		
 
-		if get_article_response:
-			author=get_article_response.get("author")
-			title=get_article_response.get("title")
-			description=get_article_response.get("description")
-			article=get_article_response.get("article")
-			image=get_article_response.get("image")
-			publishedAt=get_article_response.get("publishedAt")
+def process_article(article_list):
 
-			article_results=Articles(author,title,description,article,image,publishedAt)
+	article_item=[]
 
-	return article_results
+	for get_article_response in article_list:
+		author=get_article_response.get("author")
+		title=get_article_response.get("title")
+		description=get_article_response.get("description")
+		image=get_article_response.get("urlToImage")
+		url=get_article_response.get('url')
+		publishedAt=get_article_response.get("publishedAt")
 
+
+		article_results=Articles(author,title,description,image,url,publishedAt)
+		article_item.append(article_results)
+
+	return article_item
+	print(article_item)
 ##---------------------------------------------------------------------
 						#THE END
 ##---------------------------------------------------------------------

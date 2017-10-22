@@ -1,6 +1,6 @@
 class Config:
 	NEWS_SOURCE_API_BASE_URL='https://newsapi.org/v1/sources?{}'
-	NEWS_ARTICLE_API_BASE_URL='https://newsapi.org/v1/articles?source={}&sortBy=latest&apiKey={}'
+	NEWS_ARTICLE_API_BASE_URL='https://newsapi.org/v1/articles?source={}&apiKey={}'
 
 class ProdConfig(Config):
 	pass
