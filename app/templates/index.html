@@ -2,13 +2,13 @@
 {%import 'macros.html' as macro%}
 
 {% block content %}
-
+		<h1>{{h1}}</h1>
 		<h2>list of sources In English Language</h2>	
 		<ul>
 			{{ macro.displaySourceList(source) }}
 		</ul> 
 		<h2>Articles available</h2>
 		<ul>
-			{{macro.displayArticleList(news)}}
+			{{macro.displayArticleList(new)}}
 		</ul>
 {% endblock %}

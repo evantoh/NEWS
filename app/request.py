@@ -1,7 +1,7 @@
 from app import app
 import urllib.request,json
-from app.models.sources import Sources
-from app.models.sources import Articles
+from .models.sources import Sources
+from .models.sources import Articles
 
 
 
@@ -52,6 +52,8 @@ def process_source_result(source_list):
 
 	return source_results
 
+
+
 #-------------------------------------------------------------
 					#END OF SOURCE_URL STRIPING 
 #-------------------------------------------------------------
@@ -60,40 +62,70 @@ def process_source_result(source_list):
 ##------------------------------------------------------------
 					#STRIPPING OF THE ARTICLE URL
 ##------------------------------------------------------------
-def get_article(id):
+# def get_article(source):
 
-	get_article_url=article_url.format(id,api_key)
+# 	get_article_url=article_url.format(source,api_key)
+	
 
-	article_results=None
+# 	with urllib.request.urlopen(get_article_url) as url:
+# 		article_data=url.read()
+# 		get_article_response=json.loads(article_data)
+
+# 		article_results=None
+
+# 		if get_article_response['articles']:
+# 			article_results_list =get_article_response['articles']
+# 			article_results=process_article(article_results_list)
+# 	# print(article_results)
+# 	return article_results
+	
+
+		
+
+# def process_article(article_list):
+
+# 	article_results=[]
+
+# 	for article_item in article_list:
+# 		author=article_item.get("author")
+# 		title=article_item.get("title")
+# 		description=article_item.get('description')
+# 		url=article_item.get('url')
+# 		image=article_item.get("urlToImage")
+# 		publishedAt=article_item.get("publishedAt")
+
+
+# 		article_object=Articles(author,title,description,url,image,publishedAt)
+# 		article_results.append(article_object)
+
+# 	print(article_object)	
+# 	return article_results
+	
+source="the-next-web"
+
+def get_article(source):
+
+	get_article_url=article_url.format(source,api_key)
+	
 
 	with urllib.request.urlopen(get_article_url) as url:
 		article_data=url.read()
 		get_article_response=json.loads(article_data)
-		get_article_processed=process_article(get_article_response)
-	
-	return get_article_processed
-		
 
-		
+		article_results=None
 
-def process_article(article_list):
+		if get_article_response:
+			author=get_article_response.get("author")
+			title=get_article_response.get("title")
+			description=get_article_response.get('description')
+			url=get_article_response.get('url')
+			image=get_article_response.get("urlToImage")
+			publishedAt=get_article_response.get("publishedAt")
 
-	article_item=[]
+			article_results=Articles(author,title,description,url,image,publishedAt)
+	print(article_results)
+	return article_results
 
-	for get_article_response in article_list:
-		author=get_article_response.get("author")
-		title=get_article_response.get("title")
-		description=get_article_response.get("description")
-		image=get_article_response.get("urlToImage")
-		url=get_article_response.get('url')
-		publishedAt=get_article_response.get("publishedAt")
-
-
-		article_results=Articles(author,title,description,image,url,publishedAt)
-		article_item.append(article_results)
-
-	return article_item
-	print(article_item)
 ##---------------------------------------------------------------------
 						#THE END
 ##---------------------------------------------------------------------

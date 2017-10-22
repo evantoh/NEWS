@@ -5,11 +5,10 @@ from .request import get_source,get_article
 @app.route('/')
 
 def index():
-
+	news=get_article('the-next-web')
 	title='Welcome to the best News Update website'
 	sources=get_source("technology")
-	
-	return render_template('index.html',title=title,source = sources)
+	return render_template('index.html',title=title,source = sources,news=news)
 
 
 @app.route('/news/<string:id>')
