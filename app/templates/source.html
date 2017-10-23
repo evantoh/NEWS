@@ -1,9 +1,18 @@
 {%extends 'base.html' %}
 {% import 'macros.html' as macro%}
+
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/cssstyles.css')}}">
+    
+    <link href="https://fonts.googleapis.com/css?family=Bad+Script|Fredericka+the+Great|Londrina+Outline|Londrina+Shadow" rel="stylesheet">
+{% endblock %}
+
 {%block content%}
 <div class="container">
 	<div class="row">
-			{{macro.displayArticle(news)}}
+			{{macro.displayArticleList(news)}}
 			 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style=" style=" display:inline height:800px background: url({{news.image}}) no-repeat center center">
 			 </div>
 

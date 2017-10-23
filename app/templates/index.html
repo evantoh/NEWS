@@ -1,6 +1,16 @@
 {% extends 'base.html'%}
 {%import 'macros.html' as macro%}
 
+
+<!-- Styles block -->
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/cssstyles.css')}}">
+    
+    <link href="https://fonts.googleapis.com/css?family=Bad+Script|Fredericka+the+Great|Londrina+Outline|Londrina+Shadow" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
 	<div class="container">
 		<div class="row">
@@ -12,7 +22,7 @@
 				</ul>
 			</div>
 			<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 news-card"> 
-				<h2>Articles</h2>
+				<h2>Latest Articles</h2>
 				<ul>
 					{{macro.displayArticleList(news)}}
 				</ul>
