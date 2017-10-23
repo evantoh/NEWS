@@ -1,0 +1,34 @@
+/*font-family: 'Fredericka the Great', cursive;
+font-family: 'Londrina Outline', cursive;
+font-family: 'Londrina Shadow', cursive;
+font-family: 'Bad Script', cursive;*/
+
+
+.row h1{
+	font-family: 'Fredericka the Great', cursive;
+	font-size: 6em;
+	font-weight: bolder;
+	text-align: center;
+	text-align: center;
+
+}
+.row a{
+	font-family: 'Bad Script', cursive;
+	font-size: 1em;
+	color: black;
+	letter-spacing:3px;
+	margin-bottom: 10px;
+
+}
+
+.row h2{
+font-family: 'Londrina Outline', cursive;
+font-size: 3em;
+font-weight: bolder;
+text-align: center;
+}
+
+.row ul{
+	list-style: none;
+}
+
